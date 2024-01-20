@@ -5,7 +5,8 @@ MAXN = 10 ** 8
 
 # Fuction check prime
 def is_prime(n):
-    if n < 2: return False
+    if n < 2: 
+        return False
     for i in range(2, int(sqrt(n)) + 1):
         if n % i == 0: 
             return False
@@ -34,12 +35,13 @@ def gen_hcn():
         for el in hcn:
             new_hcn.append(el)
             if len(el[2]) < i: continue
-            e_max = el[2][i-1] if i >= 1 else int(log(MAXN, 2))
+            e_max = el[2][i - 1] if i >= 1 else int(log(MAXN, 2))
             n = el[0]
-            for e in range(1, e_max+1):
+            for e in range(1, e_max + 1):
                 n *= list_p[i]
-                if n > MAXN: break
-                div = el[1] * (e+1)
+                if n > MAXN: 
+                    break
+                div = el[1] * (e + 1)
                 exponents = el[2] + [e]
                 new_hcn.append((n, div, exponents))
         new_hcn.sort()
@@ -60,4 +62,5 @@ for line in sys.stdin:
     n = int(line)
     i += 1
     print(list_hcn[bisect_left(list_hcn, n)])
-    if i == t: break
+    if i == t: 
+        break
